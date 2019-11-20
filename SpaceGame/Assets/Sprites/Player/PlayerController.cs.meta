@@ -3,7 +3,18 @@ guid: da5afdf56385a39419825227cf9fa209
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - UIWeaponText: {instanceID: 0}
+  - PulseCannonShot: {fileID: 7813455725918215684, guid: 31bd6f8e0f124264da3d2537a8d4e8da,
+      type: 3}
+  - PlasmaLauncherShot: {fileID: 238058655862787742, guid: 548a23f089aac414ea6afd009cab0308,
+      type: 3}
+  - EnergyBeamShot: {fileID: 6409465205020633859, guid: 8ae2f20c6a62f1a4fb853f02915e4b63,
+      type: 3}
+  - MissilePodShot: {fileID: 3456348929690843933, guid: 60f30f275bdb3e348b61e71cd78dc7e8,
+      type: 3}
+  - playerPosition: {fileID: 9096430112188222552, guid: 9189c53cea8e7c84bbd182e054cef96a,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

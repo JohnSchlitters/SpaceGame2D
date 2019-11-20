@@ -122,11 +122,11 @@ MonoBehaviour:
   weaponnumber: 1
   UIWeaponText: {fileID: 618457972777748132, guid: 24f435736ccb9bb4e8cf4d45ee25426b,
     type: 3}
-  pulseCannonShot: {fileID: 7813455725918215684, guid: 31bd6f8e0f124264da3d2537a8d4e8da,
+  PulseCannonShot: {fileID: 7813455725918215684, guid: 31bd6f8e0f124264da3d2537a8d4e8da,
     type: 3}
-  plasmaLauncherShot: {fileID: 238058655862787742, guid: 548a23f089aac414ea6afd009cab0308,
+  PlasmaLauncherShot: {fileID: 238058655862787742, guid: 548a23f089aac414ea6afd009cab0308,
     type: 3}
-  energyBeamShot: {fileID: 6409465205020633859, guid: 8ae2f20c6a62f1a4fb853f02915e4b63,
+  EnergyBeamShot: {fileID: 6409465205020633859, guid: 8ae2f20c6a62f1a4fb853f02915e4b63,
     type: 3}
-  missilePodShot: {fileID: 3456348929690843933, guid: 60f30f275bdb3e348b61e71cd78dc7e8,
+  MissilePodShot: {fileID: 3456348929690843933, guid: 60f30f275bdb3e348b61e71cd78dc7e8,
     type: 3}

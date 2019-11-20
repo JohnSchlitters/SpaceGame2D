@@ -8,18 +8,25 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public int weaponnumber = 1;
-
     public Text UIWeaponText;
+    
+    public GameObject PulseCannonShot;
+    public GameObject PlasmaLauncherShot;
+    public GameObject EnergyBeamShot;
+    public GameObject MissilePodShot;
+    
+    public int pulseCount = 0;
+    public int maxPulse = 1;
+    public int plasmaCount = 0;
+    public int maxPlasma = 1;
+    public int energyCount = 0;
+    public int maxEnergy = 1;
+    public int missileCount = 0;
+    public int maxMissile = 1;
+    public float weaponCooldown = 0;
+    public Transform playerPosition;
 
-    public GameObject pulseCannonShot;
-
-    public GameObject plasmaLauncherShot;
-
-    public GameObject energyBeamShot;
-
-    public GameObject missilePodShot;
-
-    private Transform playerPosition;
+    private bool canFire;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +70,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canFire)
         {
             FirePlayerWeapon();
         }
@@ -81,6 +88,29 @@ public class PlayerController : MonoBehaviour
             case 4:
                 UIWeaponText.text = "Weapon - Missile Pod";
                 break;
+        }
+        //pulse cannon controller
+        if (!canFire && Time.time > weaponCooldown)
+        {
+            canFire = true;
+        }
+
+        if (pulseCount == maxPulse)
+        {
+            weaponCooldown = Time.time + 1f;
+            pulseCount = 0;
+        }
+        //plasma weapon counter
+        if (plasmaCount == maxPlasma)
+        {
+            weaponCooldown = Time.time + 1.5f;
+            plasmaCount = 0;
+        }
+        //energy weapon controller
+        if (energyCount == maxEnergy)
+        {
+            weaponCooldown = Time.time + 2f;
+            energyCount = 0;
         }
     }
 
@@ -103,24 +133,45 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FirePulseCannon()
+    private void FirePulseCannon()
     {
-        GameObject firedPulseShot = Instantiate(pulseCannonShot, playerPosition.position, playerPosition.rotation);
+        GameObject firedPulseShot = Instantiate(PulseCannonShot, playerPosition.position, playerPosition.rotation);
         firedPulseShot.name = "playerPulseShot";
-        firedPulseShot.GetComponent<Rigidbody2D>().velocity = playerPosition.forward * 15f;
+        firedPulseShot.GetComponent<Rigidbody2D>().velocity = Vector2.up * 15f;;
+        pulseCount++;
+        weaponCooldown = Time.time + 0.1f;
+        canFire = false;
     }
 
-    void FirePlasmaLauncher()
+    private void FirePlasmaLauncher()
     {
-        
+        GameObject firedPlasmaShotL = Instantiate(PlasmaLauncherShot, playerPosition.position, playerPosition.rotation);
+        GameObject firedPlasmaShotR = Instantiate(PlasmaLauncherShot, playerPosition.position, playerPosition.rotation);
+        firedPlasmaShotL.name = "playerPulseShotL";
+        firedPlasmaShotR.name = "playerPulseShotR";
+        firedPlasmaShotL.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -15));
+        firedPlasmaShotR.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 15));
+        firedPlasmaShotL.GetComponent<Rigidbody2D>().AddForce(300 * Vector2.up);
+        firedPlasmaShotR.GetComponent<Rigidbody2D>().AddForce(300 * Vector2.up);
+
+        //firedPlasmaShotL.GetComponent<Rigidbody2D>().velocity = (Vector2.up * 8);
+        //firedPlasmaShotR.GetComponent<Rigidbody2D>().velocity = (Vector2.up * 8);
+        plasmaCount++;
+        weaponCooldown = Time.time + 0.3f;
+        canFire = false;
     }
 
-    void FireEnergyBeam()
+    private void FireEnergyBeam()
     {
-        
+        GameObject firedPulseShot = Instantiate(EnergyBeamShot, playerPosition.position, playerPosition.rotation);
+        firedPulseShot.name = "playerEnergyShot";
+        firedPulseShot.GetComponent<Rigidbody2D>().velocity = Vector2.up * 10f;;
+        energyCount++;
+        weaponCooldown = Time.time + 0.5f;
+        canFire = false;
     }
 
-    void FireMissilePod()
+    private void FireMissilePod()
     {
         
     }
