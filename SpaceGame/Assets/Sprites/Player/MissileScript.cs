@@ -22,9 +22,9 @@ public class MissileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rocketBody.velocity = transform.up * rocketSpeed * Time.deltaTime;
+/*        rocketBody.velocity = transform.up * rocketSpeed * Time.deltaTime;
         Vector3 targetVector = closestTarget.position - transform.position;
         float rotateIndex = Vector3.Cross(targetVector, transform.up).z;
-        rocketBody.angularVelocity = -1 * rotateIndex * missileTurn * Time.deltaTime;
+        rocketBody.angularVelocity = -1 * rotateIndex * missileTurn * Time.deltaTime; */
     }
 }

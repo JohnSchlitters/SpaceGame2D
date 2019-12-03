@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0ad8319b0bd43db488c167c1e06abbe9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - enemyGunShipA: {fileID: 4257864061143351717, guid: 5eacba4ecf3fc714da4b265b3ed47483,
+      type: 3}
+  - enemyGunShipB: {fileID: 4838536701667320373, guid: 679acfbf8a1035d4b8ef8dd7d4250613,
+      type: 3}
+  - enemySpawn: {instanceID: 0}
+  - enemyMissileShip: {fileID: 1707723089883575965, guid: 69fec5b25648bde4481bcf35803b1ee9,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

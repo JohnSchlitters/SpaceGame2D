@@ -15,6 +15,10 @@ MonoImporter:
       type: 3}
   - playerPosition: {fileID: 9096430112188222552, guid: 9189c53cea8e7c84bbd182e054cef96a,
       type: 3}
+  - playerFireA: {fileID: 8300000, guid: 68d7cb1473340d2498e5a4c423442c55, type: 3}
+  - playerFireB: {instanceID: 0}
+  - playerFireC: {instanceID: 0}
+  - playerFireD: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

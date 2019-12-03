@@ -25,7 +25,12 @@ public class PlayerController : MonoBehaviour
     public int maxMissile = 1;
     public float weaponCooldown = 0;
     public Transform playerPosition;
-
+    public Transform playerPlasmaL;
+    public Transform playerPlasmaR;
+    public AudioClip playerFireA;
+    public AudioClip playerFireB;
+    public AudioClip playerFireC;
+    public AudioClip playerFireD;
     private bool canFire;
     // Start is called before the first frame update
     void Start()
@@ -136,6 +141,7 @@ public class PlayerController : MonoBehaviour
     private void FirePulseCannon()
     {
         GameObject firedPulseShot = Instantiate(PulseCannonShot, playerPosition.position, playerPosition.rotation);
+        AudioSource.PlayClipAtPoint(playerFireA, transform.position);
         firedPulseShot.name = "playerPulseShot";
         firedPulseShot.GetComponent<Rigidbody2D>().velocity = Vector2.up * 15f;;
         pulseCount++;
@@ -145,14 +151,13 @@ public class PlayerController : MonoBehaviour
 
     private void FirePlasmaLauncher()
     {
-        GameObject firedPlasmaShotL = Instantiate(PlasmaLauncherShot, playerPosition.position, playerPosition.rotation);
-        GameObject firedPlasmaShotR = Instantiate(PlasmaLauncherShot, playerPosition.position, playerPosition.rotation);
+        GameObject firedPlasmaShotL = Instantiate(PlasmaLauncherShot, playerPlasmaL.position, playerPlasmaL.rotation * Quaternion.Euler (10f, 0f, 0f));
+        GameObject firedPlasmaShotR = Instantiate(PlasmaLauncherShot, playerPlasmaR.position, playerPlasmaR.rotation * Quaternion.Euler (10f, 0f, 0f));
+        AudioSource.PlayClipAtPoint(playerFireB, transform.position);
         firedPlasmaShotL.name = "playerPulseShotL";
         firedPlasmaShotR.name = "playerPulseShotR";
-        firedPlasmaShotL.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -15));
-        firedPlasmaShotR.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 15));
-        firedPlasmaShotL.GetComponent<Rigidbody2D>().AddForce(300 * Vector2.up);
-        firedPlasmaShotR.GetComponent<Rigidbody2D>().AddForce(300 * Vector2.up);
+        firedPlasmaShotL.GetComponent<Rigidbody2D>().AddForce(350 * Vector2.up);
+        firedPlasmaShotR.GetComponent<Rigidbody2D>().AddForce(350 * Vector2.up);
 
         //firedPlasmaShotL.GetComponent<Rigidbody2D>().velocity = (Vector2.up * 8);
         //firedPlasmaShotR.GetComponent<Rigidbody2D>().velocity = (Vector2.up * 8);
@@ -164,6 +169,7 @@ public class PlayerController : MonoBehaviour
     private void FireEnergyBeam()
     {
         GameObject firedPulseShot = Instantiate(EnergyBeamShot, playerPosition.position, playerPosition.rotation);
+        AudioSource.PlayClipAtPoint(playerFireC, transform.position);
         firedPulseShot.name = "playerEnergyShot";
         firedPulseShot.GetComponent<Rigidbody2D>().velocity = Vector2.up * 10f;;
         energyCount++;
@@ -173,7 +179,7 @@ public class PlayerController : MonoBehaviour
 
     private void FireMissilePod()
     {
-        
+        AudioSource.PlayClipAtPoint(playerFireD, transform.position);
     }
 }
 

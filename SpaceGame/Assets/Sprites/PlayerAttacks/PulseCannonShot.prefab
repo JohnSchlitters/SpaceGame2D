@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1725072729717941382}
   - component: {fileID: 2817971435635848206}
   - component: {fileID: 4638082445388082685}
+  - component: {fileID: 8266806133573212439}
   m_Layer: 9
   m_Name: PulseCannonShot
   m_TagString: Untagged
@@ -128,3 +129,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8266806133573212439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7813455725918215684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8b74250e9286f4fb84008f720a83c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
