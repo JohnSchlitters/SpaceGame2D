@@ -11,37 +11,46 @@ public class EnemyManeuverScriptA : MonoBehaviour
     public Transform enemyPointL;
     public Transform enemyPointC;
     public Transform enemyPointR;
-    float enemyspeed = 10f;
+    public float enemyspeed = 0.25f;
     private Vector2 position;
+    private float moveDuration = 4.0f;
+    private float waitBeforeMove = 3.0f;
+    public float enemyhp;
+
+    private bool arrived = false;
     void Start()
     {
         position = gameObject.transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        enemytimer -= 1 * Time.deltaTime;
-        if (enemytimer <= 0f)
+        if (!arrived)
         {
-            pointselect = Random.Range(1, 3);
-            switch (pointselect)
-            {
-                case 1:
-                    float step1 = enemyspeed * Time.deltaTime;
-                    transform.position = Vector2.MoveTowards(transform.position, enemyPointL.transform.position, step1);
-                    break;
-                case 2:
-                    float step2 = enemyspeed * Time.deltaTime;
-                    transform.position = Vector2.MoveTowards(transform.position, enemyPointC.transform.position, step2);
-                    break;
-                case 3:
-                    float step3 = enemyspeed * Time.deltaTime;
-                    transform.position = Vector2.MoveTowards(transform.position, enemyPointR.transform.position, step3);
-                    break;
-            }
+            arrived = true;
+            float randomXposition = Random.Range(-6.0f, 6.0f); //random left right
+            float randomYposition = Random.Range(1.5f, 2.5f); //random up down
+            StartCoroutine(MoveToPoint(new Vector3(randomXposition, randomYposition, 0)));
+        }
+    }
+
+    private IEnumerator MoveToPoint (Vector3 targetposition)
+    {
+        float movetimer = 0.0f;
+        Vector3 startposition = transform.position;
+
+        while (movetimer < moveDuration) //while it's still moving
+        {
+            movetimer += Time.deltaTime;
+            float t = movetimer / moveDuration;
+            t = t * t * t * (t * (6f * t - 15f) + 10f); //more t is slower movement
+            transform.position = Vector3.Lerp(startposition, targetposition, t);
+
+            yield return null;
         }
 
-        enemytimer = 10f;
+        yield return new WaitForSeconds(waitBeforeMove);
+        arrived = false;
     }
 }

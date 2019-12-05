@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1707723089883575906}
   - component: {fileID: 6324044946428428125}
   - component: {fileID: 5394738416719610709}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyMissileShip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,8 @@ MonoBehaviour:
     type: 3}
   enemyPointR: {fileID: 7071066041605542566, guid: bdf919d070a766a4ea9dcb91f30b6d88,
     type: 3}
-  selfTransform: {fileID: 1707723089883575907}
+  enemyspeed: 10
+  enemyhp: 0
 --- !u!50 &5394738416719610709
 Rigidbody2D:
   serializedVersion: 4

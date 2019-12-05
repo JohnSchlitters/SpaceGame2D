@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 22c4666d34e16ba4e90c1e47e6c47248
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - EPlasmaCannonShot: {fileID: 1621600699633585138, guid: b25b436689b9e1c4fb69b8edf4b75b6d,
+      type: 3}
+  - enemyFireB: {fileID: 8300000, guid: 6bb7a2af50307c74baf5ec063badfa3a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

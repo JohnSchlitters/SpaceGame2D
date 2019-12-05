@@ -151,8 +151,8 @@ public class PlayerController : MonoBehaviour
 
     private void FirePlasmaLauncher()
     {
-        GameObject firedPlasmaShotL = Instantiate(PlasmaLauncherShot, playerPlasmaL.position, playerPlasmaL.rotation * Quaternion.Euler (10f, 0f, 0f));
-        GameObject firedPlasmaShotR = Instantiate(PlasmaLauncherShot, playerPlasmaR.position, playerPlasmaR.rotation * Quaternion.Euler (10f, 0f, 0f));
+        GameObject firedPlasmaShotL = Instantiate(PlasmaLauncherShot, playerPlasmaL.position, playerPlasmaL.rotation * Quaternion.Euler (0f, 0f, 15f));
+        GameObject firedPlasmaShotR = Instantiate(PlasmaLauncherShot, playerPlasmaR.position, playerPlasmaR.rotation * Quaternion.Euler (0f, 0f, -15f));
         AudioSource.PlayClipAtPoint(playerFireB, transform.position);
         firedPlasmaShotL.name = "playerPulseShotL";
         firedPlasmaShotR.name = "playerPulseShotR";
