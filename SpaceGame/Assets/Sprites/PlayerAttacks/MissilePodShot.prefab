@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4985248726210696823}
   m_Layer: 9
   m_Name: MissilePodShot
-  m_TagString: Untagged
+  m_TagString: PlayerMissile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,7 +247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351455ecf3f03b445b7dfc797bcf0d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closestTarget: {fileID: 0}
   rocketSpeed: 25
   missileTurn: 100
 --- !u!114 &4985248726210696823

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8266806133573212439}
   m_Layer: 9
   m_Name: PulseCannonShot
-  m_TagString: Untagged
+  m_TagString: PlayerPulse
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,6 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyLHealth: {fileID: 7585884895462195641, guid: 5eacba4ecf3fc714da4b265b3ed47483,
+    type: 3}
+  enemyHHealth: {fileID: 5474232533989641770, guid: 679acfbf8a1035d4b8ef8dd7d4250613,
     type: 3}
 --- !u!50 &4638082445388082685
 Rigidbody2D:

@@ -4,9 +4,21 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - EnemyLight
+  - EnemyMissile
+  - EnemyHeavy
+  - AsteroidTag
   - Enemy
-  - LightTag
-  - HeavyTag
+  - PlayerPulse
+  - PlayerPlasma
+  - PlayerBeam
+  - PlayerMissile
+  - EnemyPlasma
+  - EnemyPulse
+  - PowerUpLaser
+  - PowerUpPulse
+  - PowerUpPlasma
+  - PowerUpHeal
   layers:
   - Default
   - TransparentFX

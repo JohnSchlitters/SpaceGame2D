@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1707723089883575906}
   - component: {fileID: 6324044946428428125}
   - component: {fileID: 5394738416719610709}
+  - component: {fileID: 4915795044286540361}
   m_Layer: 10
   m_Name: EnemyMissileShip
-  m_TagString: Enemy
+  m_TagString: EnemyMissile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 239237fc1d0e21c479266af1b162c8cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6499ac6fe1e82834ea607061fdd70f05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,3 +123,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4915795044286540361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707723089883575965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1401484493dc745a79162225d45dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

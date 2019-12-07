@@ -11,11 +11,13 @@ GameObject:
   - component: {fileID: 3036810748625561191}
   - component: {fileID: 3267483831734465327}
   - component: {fileID: 7781126468327456130}
+  - component: {fileID: 5474232533989641770}
   - component: {fileID: 5447352921689519950}
   - component: {fileID: 8908696382665066835}
+  - component: {fileID: 3244845953218264299}
   m_Layer: 10
   m_Name: EnemyHeavyGunship
-  m_TagString: Enemy
+  m_TagString: EnemyHeavy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +104,31 @@ MonoBehaviour:
     type: 3}
   enemyspeed: 10
   enemyhp: 0
+--- !u!114 &5474232533989641770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838536701667320373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d431303fb7f2fa41a336a773f745c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHPH: 200
+  explosionemitter: {fileID: 8710622138656305012, guid: ab5abe114751a464abf3c3cd392e9006,
+    type: 3}
+  waitTime: 0.5
+  powerupHeal: {fileID: 4642874268304769858, guid: 5b36b4e15a3582f4e8b51400d09c0eb7,
+    type: 3}
+  powerupPulse: {fileID: 2435416613088461571, guid: 1d6fba4a8aea20047a255258b81272e0,
+    type: 3}
+  powerupPlasma: {fileID: 5136957098858787708, guid: 6928136a308bd974abccf166dc8e5d89,
+    type: 3}
+  powerupEnergy: {fileID: 1284025064134033766, guid: f53ffc5d1d75d16408ac4e58bbc8020b,
+    type: 3}
+  BlowUp: {fileID: 8300000, guid: ba736116f67d4704191c603a86ed7f9d, type: 3}
 --- !u!50 &5447352921689519950
 Rigidbody2D:
   serializedVersion: 4
@@ -121,7 +148,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &8908696382665066835
 MonoBehaviour:
@@ -138,3 +165,29 @@ MonoBehaviour:
   EPlasmaCannonShot: {fileID: 1621600699633585138, guid: b25b436689b9e1c4fb69b8edf4b75b6d,
     type: 3}
   enemyFireB: {fileID: 8300000, guid: 6bb7a2af50307c74baf5ec063badfa3a, type: 3}
+--- !u!61 &3244845953218264299
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838536701667320373}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.16}
+  m_EdgeRadius: 0

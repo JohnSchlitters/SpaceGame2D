@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5116494055240641047}
   - component: {fileID: 1376012313271147733}
   - component: {fileID: 8625041158438577849}
-  m_Layer: 0
+  - component: {fileID: 1179005881}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: da28731df19fa2548b7af23daee89cc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -122,8 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponnumber: 1
-  UIWeaponText: {fileID: 618457972777748132, guid: 24f435736ccb9bb4e8cf4d45ee25426b,
-    type: 3}
+  UIWeaponText: {fileID: 0}
   PulseCannonShot: {fileID: 7813455725918215684, guid: 31bd6f8e0f124264da3d2537a8d4e8da,
     type: 3}
   PlasmaLauncherShot: {fileID: 238058655862787742, guid: 548a23f089aac414ea6afd009cab0308,
@@ -133,7 +133,7 @@ MonoBehaviour:
   MissilePodShot: {fileID: 3456348929690843933, guid: 60f30f275bdb3e348b61e71cd78dc7e8,
     type: 3}
   pulseCount: 0
-  maxPulse: 1
+  maxPulse: 2
   plasmaCount: 0
   maxPlasma: 1
   energyCount: 0
@@ -141,11 +141,28 @@ MonoBehaviour:
   missileCount: 0
   maxMissile: 1
   weaponCooldown: 0
-  playerPosition: {fileID: 0}
-  playerFireA: {fileID: 0}
-  playerFireB: {fileID: 0}
-  playerFireC: {fileID: 0}
-  playerFireD: {fileID: 0}
+  playerPosition: {fileID: 9096430112188222552}
+  playerFireA: {fileID: 8300000, guid: 68d7cb1473340d2498e5a4c423442c55, type: 3}
+  playerFireB: {fileID: 8300000, guid: 457862fb0124ada4c9c5a48fda558dea, type: 3}
+  playerFireC: {fileID: 8300000, guid: 354740fcdfd7d064e96852b10ea5d304, type: 3}
+  playerFireD: {fileID: 8300000, guid: f72c88872764528498cf85a33ca039ac, type: 3}
+--- !u!114 &1179005881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519245767237696249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646e6eaa62253b3408efa03399fae09f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIPlayerScore: {fileID: 0}
+  UIPlayerMultiplier: {fileID: 0}
+  playerScore: 0
+  playerMultiplier: 1
+  playerKillCount: 0
 --- !u!1 &7912225511342938819
 GameObject:
   m_ObjectHideFlags: 0

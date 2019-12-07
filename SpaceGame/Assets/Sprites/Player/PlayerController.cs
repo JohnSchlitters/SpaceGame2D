@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEditor.VersionControl;
@@ -9,11 +10,13 @@ public class PlayerController : MonoBehaviour
 {
     public int weaponnumber = 1;
     public Text UIWeaponText;
+    public Text UIPlayerHPText;
     
     public GameObject PulseCannonShot;
     public GameObject PlasmaLauncherShot;
     public GameObject EnergyBeamShot;
     public GameObject MissilePodShot;
+    public GameObject explosionemitter;
     
     public int pulseCount = 0;
     public int maxPulse = 1;
@@ -25,30 +28,42 @@ public class PlayerController : MonoBehaviour
     public int maxMissile = 1;
     public float weaponCooldown = 0;
     public Transform playerPosition;
-    public Transform playerPlasmaL;
-    public Transform playerPlasmaR;
     public AudioClip playerFireA;
     public AudioClip playerFireB;
     public AudioClip playerFireC;
     public AudioClip playerFireD;
+    public AudioClip PowerUp;
+    public AudioClip BlowUp;
     private bool canFire;
+
+    public int playerHP;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Application.targetFrameRate = 144;
+        playerHP = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
+        UIPlayerHPText.text = ("HP : " + playerHP);
+        if (playerHP > 100)
+        {
+            playerHP = 100;
+        }
+        if (playerHP <= 0)
+        {
+            PlayerDeath();
+        }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * Time.deltaTime * 3);
+            transform.Translate(Vector3.left * Time.deltaTime * 4);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * Time.deltaTime * 3);
+            transform.Translate(Vector3.right * Time.deltaTime * 4);
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -149,22 +164,20 @@ public class PlayerController : MonoBehaviour
         canFire = false;
     }
 
-    private void FirePlasmaLauncher()
-    {
-        GameObject firedPlasmaShotL = Instantiate(PlasmaLauncherShot, playerPlasmaL.position, playerPlasmaL.rotation * Quaternion.Euler (0f, 0f, 15f));
-        GameObject firedPlasmaShotR = Instantiate(PlasmaLauncherShot, playerPlasmaR.position, playerPlasmaR.rotation * Quaternion.Euler (0f, 0f, -15f));
-        AudioSource.PlayClipAtPoint(playerFireB, transform.position);
+ 
+    private void FirePlasmaLauncher() 
+    { 
+        GameObject firedPlasmaShotL = Instantiate(PlasmaLauncherShot, playerPosition.position, playerPosition.rotation);
+        GameObject firedPlasmaShotR = Instantiate(PlasmaLauncherShot, playerPosition.position, playerPosition.rotation);
+        AudioSource.PlayClipAtPoint(playerFireB, transform.position); 
         firedPlasmaShotL.name = "playerPulseShotL";
         firedPlasmaShotR.name = "playerPulseShotR";
-        firedPlasmaShotL.GetComponent<Rigidbody2D>().AddForce(350 * Vector2.up);
-        firedPlasmaShotR.GetComponent<Rigidbody2D>().AddForce(350 * Vector2.up);
-
-        //firedPlasmaShotL.GetComponent<Rigidbody2D>().velocity = (Vector2.up * 8);
-        //firedPlasmaShotR.GetComponent<Rigidbody2D>().velocity = (Vector2.up * 8);
-        plasmaCount++;
-        weaponCooldown = Time.time + 0.3f;
-        canFire = false;
-    }
+        firedPlasmaShotL.GetComponent<Rigidbody2D>().velocity = new Vector3(1f, 8f, 0f);
+        firedPlasmaShotR.GetComponent<Rigidbody2D>().velocity = new Vector3(-1f, 8f, 0f);
+        plasmaCount++; 
+        weaponCooldown = Time.time + 0.3f; 
+        canFire = false; 
+    } 
 
     private void FireEnergyBeam()
     {
@@ -179,7 +192,61 @@ public class PlayerController : MonoBehaviour
 
     private void FireMissilePod()
     {
+        GameObject launchedMissile = Instantiate(MissilePodShot, playerPosition.position, playerPosition.rotation);
+        launchedMissile.name = "LaunchedMissile";
+        launchedMissile.GetComponent<Rigidbody2D>().AddForce(100 * Vector2.up);
         AudioSource.PlayClipAtPoint(playerFireD, transform.position);
+        canFire = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D EnemyProjectileCollide)
+    {
+        if (EnemyProjectileCollide.gameObject.CompareTag("EnemyPulse"))
+        {
+            playerHP -= 5;
+            Destroy(EnemyProjectileCollide.gameObject);
+            print("removed enemy pulse");
+        }
+        if (EnemyProjectileCollide.gameObject.CompareTag("EnemyPlasma"))
+        {
+            playerHP -= 10;
+            Destroy(EnemyProjectileCollide.gameObject);
+            print("removed enemy plasma");
+        }
+
+        if (EnemyProjectileCollide.gameObject.CompareTag("PowerUpLaser"))
+        {
+            AudioSource.PlayClipAtPoint(PowerUp, transform.position); 
+            maxEnergy++;
+            Destroy(EnemyProjectileCollide.gameObject);
+        }
+        if (EnemyProjectileCollide.gameObject.CompareTag("PowerUpPlasma"))
+        {
+            AudioSource.PlayClipAtPoint(PowerUp, transform.position); 
+            maxPlasma++;
+            Destroy(EnemyProjectileCollide.gameObject);
+        }
+        if (EnemyProjectileCollide.gameObject.CompareTag("PowerUpPulse"))
+        {
+            AudioSource.PlayClipAtPoint(PowerUp, transform.position); 
+            maxPulse++;
+            Destroy(EnemyProjectileCollide.gameObject);
+        }
+        if (EnemyProjectileCollide.gameObject.CompareTag("PowerUpHeal"))
+        {
+            AudioSource.PlayClipAtPoint(PowerUp, transform.position); 
+            playerHP += 25;
+            Destroy(EnemyProjectileCollide.gameObject);
+        }
+    }
+
+    private void PlayerDeath()
+    {
+        print("Game Over, Man!");
+        GameObject deadexplosionemitter = Instantiate(explosionemitter, gameObject.transform.position, gameObject.transform.rotation);
+        deadexplosionemitter.name = "enemyexplosion";
+        Destroy(gameObject);
+        Destroy(deadexplosionemitter, 3.5f);
     }
 }
 

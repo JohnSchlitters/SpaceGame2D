@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5110213154598409150}
   m_Layer: 9
   m_Name: PlasmaCannonShot
-  m_TagString: Untagged
+  m_TagString: PlayerPlasma
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ Rigidbody2D:
   m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 0.25
+  m_GravityScale: 0.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

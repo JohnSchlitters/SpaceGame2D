@@ -14,7 +14,7 @@ public class EnemyManeuverScriptA : MonoBehaviour
     public float enemyspeed = 0.25f;
     private Vector2 position;
     private float moveDuration = 4.0f;
-    private float waitBeforeMove = 3.0f;
+    private float waitBeforeMove;
     public float enemyhp;
 
     private bool arrived = false;
@@ -49,7 +49,7 @@ public class EnemyManeuverScriptA : MonoBehaviour
 
             yield return null;
         }
-
+        waitBeforeMove = Random.Range(1f, 5f);
         yield return new WaitForSeconds(waitBeforeMove);
         arrived = false;
     }

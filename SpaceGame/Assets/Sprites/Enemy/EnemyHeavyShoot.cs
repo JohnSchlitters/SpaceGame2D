@@ -1,35 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Authentication.ExtendedProtection;
 using System.Security.Cryptography;
+using TMPro;
 using UnityEngine;
 
 public class EnemyHeavyShoot : MonoBehaviour
 {
     public GameObject EPlasmaCannonShot;
-
     public AudioClip enemyFireB;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        int randomShoot = Random.Range(1, 300);
+        int randomShoot = Random.Range(1, 500);
 
-        if (randomShoot > 298)
+        if (randomShoot >= 499)
         {
             EFirePulseCannon();
-            Invoke("EFirePulseCannon", 1f);
         }
     }
     private void EFirePulseCannon()
     {
-        GameObject efiredPulseShot = Instantiate(EPlasmaCannonShot, transform.position, transform.rotation);
-        AudioSource.PlayClipAtPoint(enemyFireB, transform.position);
-        efiredPulseShot.name = "enemyPlamsaShot";
-        efiredPulseShot.GetComponent<Rigidbody2D>().velocity = Vector2.down * 5f;;
+        GameObject efiredPulseShotL = Instantiate(EPlasmaCannonShot, transform.position, transform.rotation);
+            GameObject efiredPulseShotR = Instantiate(EPlasmaCannonShot, transform.position, transform.rotation);
+            AudioSource.PlayClipAtPoint(enemyFireB, transform.position);
+            efiredPulseShotL.name = "enemyPlamsaShotL";
+            efiredPulseShotL.name = "enemyPlamsaShotR";
+            efiredPulseShotL.GetComponent<Rigidbody2D>().velocity = new Vector3(-1f, -1f, 0f);
+            efiredPulseShotR.GetComponent<Rigidbody2D>().velocity = new Vector3(1f, -1f, 0f);
     }
 }
