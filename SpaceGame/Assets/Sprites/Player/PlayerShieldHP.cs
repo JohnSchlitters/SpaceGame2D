@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerShieldHP : MonoBehaviour
 {
-    public int shieldHP;
+    public static int shieldHP;
     public PlayerController shieldTransform;
     public Transform playerShieldTransform;
     // Start is called before the first frame update
@@ -17,10 +17,15 @@ public class PlayerShieldHP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = shieldTransform.playerShieldLocation.transform.position;
         if (shieldHP <= 0)
         {
+            PlayerController.hasShield = false;
             Destroy(gameObject);
+        }
+
+        //if (shieldHP > 100)
+        {
+            //shieldHP = 100;
         }
     }
 

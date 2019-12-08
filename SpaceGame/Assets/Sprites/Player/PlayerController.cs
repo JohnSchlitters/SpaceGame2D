@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip PowerUp;
     public AudioClip BlowUp;
     private bool canFire;
+    public static bool hasShield = false;
 
     public int playerHP;
     // Start is called before the first frame update
@@ -270,10 +271,21 @@ public class PlayerController : MonoBehaviour
         }
         if (EnemyProjectileCollide.gameObject.CompareTag("PowerUpShield"))
         {
-            AudioSource.PlayClipAtPoint(PowerUp, transform.position); 
-            GameObject playerShieldBonus = Instantiate(playerShield, playerShieldLocation.transform.position, playerShieldLocation.transform.rotation);
-            playerShieldBonus.name = "player shield";
-            Destroy(EnemyProjectileCollide.gameObject);
+            AudioSource.PlayClipAtPoint(PowerUp, transform.position);
+            if (!hasShield)
+            {
+                GameObject playerShieldBonus = Instantiate(playerShield, playerShieldLocation.transform.position, playerShieldLocation.transform.rotation);
+                playerShieldBonus.transform.SetParent(playerPosition);
+                playerShieldBonus.name = "player shield";
+                hasShield = true;
+                Destroy(EnemyProjectileCollide.gameObject);
+            }
+            else if (hasShield)
+            {
+                PlayerShieldHP.shieldHP += 50;
+                Destroy(EnemyProjectileCollide.gameObject);
+            }
+
         }
     }
 
