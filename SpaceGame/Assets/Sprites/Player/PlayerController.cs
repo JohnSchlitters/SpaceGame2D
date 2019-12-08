@@ -232,6 +232,12 @@ public class PlayerController : MonoBehaviour
             maxPulse++;
             Destroy(EnemyProjectileCollide.gameObject);
         }
+        if (EnemyProjectileCollide.gameObject.CompareTag("PowerUpMissile"))
+        {
+            AudioSource.PlayClipAtPoint(PowerUp, transform.position); 
+            maxMissile++;
+            Destroy(EnemyProjectileCollide.gameObject);
+        }
         if (EnemyProjectileCollide.gameObject.CompareTag("PowerUpHeal"))
         {
             AudioSource.PlayClipAtPoint(PowerUp, transform.position); 

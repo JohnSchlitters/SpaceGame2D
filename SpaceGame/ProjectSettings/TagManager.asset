@@ -19,6 +19,7 @@ TagManager:
   - PowerUpPulse
   - PowerUpPlasma
   - PowerUpHeal
+  - PowerUpMissile
   layers:
   - Default
   - TransparentFX

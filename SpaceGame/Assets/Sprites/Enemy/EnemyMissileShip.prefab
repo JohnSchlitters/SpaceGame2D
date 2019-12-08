@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6324044946428428125}
   - component: {fileID: 5394738416719610709}
   - component: {fileID: 4915795044286540361}
+  - component: {fileID: 2003910967314772050}
+  - component: {fileID: 4626978816873098967}
   m_Layer: 10
   m_Name: EnemyMissileShip
   m_TagString: EnemyMissile
@@ -121,7 +123,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &4915795044286540361
 MonoBehaviour:
@@ -135,3 +137,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1401484493dc745a79162225d45dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyFireD: {fileID: 8300000, guid: f72c88872764528498cf85a33ca039ac, type: 3}
+  missilePrefab: {fileID: 4601509030490623392, guid: dd9eccc1ae937d6498a5a045dd7eb674,
+    type: 3}
+--- !u!114 &2003910967314772050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707723089883575965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a02277efff0aee24c8af53add9cf6a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHPM: 0
+  explosionemitter: {fileID: 8710622138656305012, guid: ab5abe114751a464abf3c3cd392e9006,
+    type: 3}
+  waitTime: 6
+  powerupPulse: {fileID: 2435416613088461571, guid: 1d6fba4a8aea20047a255258b81272e0,
+    type: 3}
+  powerupPlasma: {fileID: 5136957098858787708, guid: 6928136a308bd974abccf166dc8e5d89,
+    type: 3}
+  powerupEnergy: {fileID: 1284025064134033766, guid: f53ffc5d1d75d16408ac4e58bbc8020b,
+    type: 3}
+  powerupMissile: {fileID: 8691353472021771387, guid: 982d7af22e5da4c439a339c5e1af48e1,
+    type: 3}
+  BlowUp: {fileID: 8300000, guid: ba736116f67d4704191c603a86ed7f9d, type: 3}
+--- !u!61 &4626978816873098967
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707723089883575965}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.16}
+  m_EdgeRadius: 0

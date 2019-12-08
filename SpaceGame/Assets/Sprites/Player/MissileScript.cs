@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class MissileScript : MonoBehaviour
 {
-    private GameObject closestEnemyTarget;
+    public GameObject closestEnemyTarget;
     public float rocketSpeed = 25f;
 
     public float missileTurn = 100f;
@@ -33,6 +34,8 @@ public class MissileScript : MonoBehaviour
 
             return closestEnemyTarget;
         }
+
+        closestEnemyTarget = closestEnemyTarget;
         rocketBody = GetComponent<Rigidbody2D>();
         rocketBody.gravityScale = 0;
     }
@@ -40,9 +43,15 @@ public class MissileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rocketBody.velocity = transform.up * rocketSpeed * Time.deltaTime;
-        Vector3 targetVector = closestEnemyTarget.transform.position - transform.position;
-        float rotateIndex = Vector3.Cross(targetVector, transform.up).z;
-        rocketBody.angularVelocity = -1 * rotateIndex * missileTurn * Time.deltaTime;
+        Vector2 missileDirection = (Vector2) closestEnemyTarget.transform.position - rocketBody.position;
+        missileDirection.Normalize();
+        float rotateIndex = Vector3.Cross(missileDirection, transform.up * 1).z;
+        rocketBody.angularVelocity = -missileTurn * rotateIndex;
+        rocketBody.velocity = (transform.up * 1) * rocketSpeed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D detectEnemy)
+    {
+        closestEnemyTarget = detectEnemy.collider2D;
     }
 }

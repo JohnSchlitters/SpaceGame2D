@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class EnemyMissileShoot : MonoBehaviour
 {
-    public GameObject EMissileShot;
     public AudioClip enemyFireD;
+    public GameObject missilePrefab;
     void Start()
     {
-        InvokeRepeating("EFireMissile", 0f, 15f);
+        InvokeRepeating("EFireMissile", 0f, 10f);
     }
     private void EFireMissile()
     {
-        GameObject eFiredMissile = Instantiate(EMissileShot, transform.position, transform.rotation);
+        Instantiate(missilePrefab, new Vector3(transform.position.x,transform.position.y,transform.position.z), Quaternion.identity);
         AudioSource.PlayClipAtPoint(enemyFireD, transform.position);
-        eFiredMissile.name = "enemyPlamsaShotL";
+        missilePrefab.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
+        missilePrefab.name = "enemyMissile";
     }
 }
