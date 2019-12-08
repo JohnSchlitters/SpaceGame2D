@@ -10,14 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 1707723089883575907}
   - component: {fileID: 1707723089883575906}
-  - component: {fileID: 6324044946428428125}
   - component: {fileID: 5394738416719610709}
   - component: {fileID: 4915795044286540361}
   - component: {fileID: 2003910967314772050}
   - component: {fileID: 4626978816873098967}
+  - component: {fileID: 2208346204618244462}
+  - component: {fileID: 9173803602770389656}
   m_Layer: 10
   m_Name: EnemyMissileShip
-  m_TagString: EnemyMissile
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,26 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6324044946428428125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707723089883575965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d9b8b3a5b6cf64eb5a64f9afac3fbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPointL: {fileID: 1710831208853422761, guid: 97c897d26edf87143898e55a63865d81,
-    type: 3}
-  enemyPointC: {fileID: 3731733620500202083, guid: 393a8c31db5232a45a21c86232c660bf,
-    type: 3}
-  enemyPointR: {fileID: 7071066041605542566, guid: bdf919d070a766a4ea9dcb91f30b6d88,
-    type: 3}
-  enemyspeed: 10
-  enemyhp: 0
 --- !u!50 &5394738416719610709
 Rigidbody2D:
   serializedVersion: 4
@@ -116,7 +97,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -155,6 +136,8 @@ MonoBehaviour:
   enemyHPM: 0
   explosionemitter: {fileID: 8710622138656305012, guid: ab5abe114751a464abf3c3cd392e9006,
     type: 3}
+  mexplosionemitter: {fileID: 6015871558755697162, guid: a0fa5d9e1088d9e45b4830d21a095009,
+    type: 3}
   waitTime: 6
   powerupPulse: {fileID: 2435416613088461571, guid: 1d6fba4a8aea20047a255258b81272e0,
     type: 3}
@@ -191,3 +174,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &2208346204618244462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707723089883575965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea68464c5d121ed46abea878f46b8a29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9173803602770389656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707723089883575965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db0323794560264681d1414240c7b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

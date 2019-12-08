@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class EnemyManeuverScriptA : MonoBehaviour
+public class EnemyManeuverScriptB : MonoBehaviour
 {
     // Start is called before the first frame update
     private float enemytimer = 10;
     private int pointselect = 0;
     private Vector2 position;
-    private float moveDuration = 6.0f;
+    private float moveDuration = 4.0f;
     private float waitBeforeMove;
 
     private bool arrived = false;
@@ -24,8 +24,8 @@ public class EnemyManeuverScriptA : MonoBehaviour
         if (!arrived)
         {
             arrived = true;
-            float randomXposition = Random.Range(-7.0f, 7.0f); //random left right
-            float randomYposition = Random.Range(1.5f, 2.5f); //random up down
+            float randomXposition = Random.Range(-8.0f, 8.0f); //random left right
+            float randomYposition = Random.Range(1.5f, 4.0f); //random up down
             StartCoroutine(MoveToPoint(new Vector3(randomXposition, randomYposition, 0)));
         }
     }

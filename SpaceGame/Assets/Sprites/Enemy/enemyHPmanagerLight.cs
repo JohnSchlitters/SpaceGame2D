@@ -10,10 +10,12 @@ public class enemyHPmanagerLight : MonoBehaviour
     public int enemyHPL;
 
     public GameObject explosionemitter;
+    public GameObject mexplosionemitter;
     public GameObject powerupHeal;
     public GameObject powerupPulse;
     public GameObject powerupPlasma;
     public GameObject powerupEnergy;
+    public GameObject powerupShield;
     public AudioClip BlowUp;
     
     public float waitTime = 10f;
@@ -53,6 +55,15 @@ public class enemyHPmanagerLight : MonoBehaviour
             enemyHPL -= 500;
             print("enemy took  500 damage");
         }
+        if (enemyCollide2D.gameObject.CompareTag("PlayerMissile"))
+        {
+            enemyHPL -= 100;
+            print("enemy took  100 damage");
+            Destroy(enemyCollide2D.gameObject);
+            GameObject missileexplosionemitter = Instantiate(mexplosionemitter, gameObject.transform.position, gameObject.transform.rotation);
+            missileexplosionemitter.name = "enemyexplosion";
+            Destroy(missileexplosionemitter, 1f);
+        }
     }
 
     private void DestroyShip()
@@ -63,8 +74,14 @@ public class enemyHPmanagerLight : MonoBehaviour
             int itemchance = UnityEngine.Random.Range(0, 10);
             if (itemchance <= 6)
             {
-                GameObject HealDrop = Instantiate(powerupHeal, gameObject.transform.position, gameObject.transform.rotation);
-                HealDrop.name = "playerHeal";
+                int typeChance = UnityEngine.Random.Range(1, 10);
+                if (typeChance <= 6)
+                {
+                    GameObject HealDrop = Instantiate(powerupHeal, gameObject.transform.position, gameObject.transform.rotation);
+                    HealDrop.name = "playerHeal";
+                }
+                GameObject Shield = Instantiate(powerupShield, gameObject.transform.position, gameObject.transform.rotation);
+                Shield.name = "playerShiel";
             }
 
             if (itemchance > 6)

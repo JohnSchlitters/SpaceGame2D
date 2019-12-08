@@ -1,17 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
-public class enemyHPmanagerHeavy : MonoBehaviour
+public class enemyHPmanagerMissile : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int enemyHPH;
+    public int enemyHPM;
 
     public GameObject explosionemitter;
     public GameObject mexplosionemitter;
+
     public float waitTime = 10f;
-    public GameObject powerupHeal;
     public GameObject powerupPulse;
     public GameObject powerupPlasma;
     public GameObject powerupEnergy;
@@ -22,13 +21,13 @@ public class enemyHPmanagerHeavy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyHPH = 200;
+        enemyHPM = 150;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemyHPH <= 0)
+        if (enemyHPM <= 0)
         {
             DestroyShip();
         }
@@ -38,7 +37,7 @@ public class enemyHPmanagerHeavy : MonoBehaviour
     {
         if (enemyCollide2D.gameObject.CompareTag("PlayerPulse"))
         {
-            enemyHPH -= 50;
+            enemyHPM -= 50;
             print("enemy took 50 damage");
             Destroy(enemyCollide2D.gameObject);
             print("removed pulse");
@@ -46,7 +45,7 @@ public class enemyHPmanagerHeavy : MonoBehaviour
 
         if (enemyCollide2D.gameObject.CompareTag("PlayerPlasma"))
         {
-            enemyHPH -= 60;
+            enemyHPM -= 60;
             print("enemy took 60 damage");
             Destroy(enemyCollide2D.gameObject);
             print("removed plasma");
@@ -54,35 +53,26 @@ public class enemyHPmanagerHeavy : MonoBehaviour
 
         if (enemyCollide2D.gameObject.CompareTag("PlayerBeam"))
         {
-            enemyHPH -= 500;
+            enemyHPM -= 500;
             print("enemy took 500 damage");
         }
         if (enemyCollide2D.gameObject.CompareTag("PlayerMissile"))
         {
-            enemyHPH -= 100;
+            enemyHPM -= 100;
             print("enemy took  100 damage");
             Destroy(enemyCollide2D.gameObject);
             GameObject missileexplosionemitter = Instantiate(mexplosionemitter, gameObject.transform.position, gameObject.transform.rotation);
             missileexplosionemitter.name = "enemyexplosion";
-            Destroy(missileexplosionemitter, 1f); 
+            Destroy(missileexplosionemitter, 1f);
         }
     }
 
     private void DestroyShip()
     {
-        int dropchance = UnityEngine.Random.Range(0,10);
-        if (dropchance >= 8)
+        int dropchance = Random.Range(0,10);
+        if (dropchance >= 5)
         {
-            int itemchance = UnityEngine.Random.Range(0, 10);
-            if (itemchance <= 3)
-            {
-                GameObject HealDrop = Instantiate(powerupHeal, gameObject.transform.position, gameObject.transform.rotation);
-                HealDrop.name = "playerHeal";
-            }
-
-            if (itemchance > 3)
-            {
-                int poweruptype = UnityEngine.Random.Range(1, 4);
+           int poweruptype = Random.Range(1, 4);
                 switch (poweruptype)
                 {
                     case 1:
@@ -102,9 +92,6 @@ public class enemyHPmanagerHeavy : MonoBehaviour
                         MissileDrop.name = "playerEnergy";
                         break;
                 }
-
-                poweruptype = 0;
-            }
         }
         AudioSource.PlayClipAtPoint(BlowUp, transform.position); 
         ScoreKeeper.playerScore += (150 * ScoreKeeper.playerMultiplier);

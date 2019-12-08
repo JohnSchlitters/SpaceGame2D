@@ -21,11 +21,11 @@ public class EnemyHeavyShoot : MonoBehaviour
     private void EFirePulseCannon()
     {
         GameObject efiredPulseShotL = Instantiate(EPlasmaCannonShot, transform.position, transform.rotation);
-            GameObject efiredPulseShotR = Instantiate(EPlasmaCannonShot, transform.position, transform.rotation);
-            AudioSource.PlayClipAtPoint(enemyFireB, transform.position);
-            efiredPulseShotL.name = "enemyPlamsaShotL";
-            efiredPulseShotL.name = "enemyPlamsaShotR";
-            efiredPulseShotL.GetComponent<Rigidbody2D>().velocity = new Vector3(-1f, -1f, 0f);
-            efiredPulseShotR.GetComponent<Rigidbody2D>().velocity = new Vector3(1f, -1f, 0f);
+        GameObject efiredPulseShotR = Instantiate(EPlasmaCannonShot, transform.position, transform.rotation);
+        AudioSource.PlayClipAtPoint(enemyFireB, transform.position);
+        efiredPulseShotL.name = "enemyPlamsaShotL";
+        efiredPulseShotL.name = "enemyPlamsaShotR";
+        efiredPulseShotL.GetComponent<Rigidbody2D>().velocity = new Vector3(-1f, -1f, 0f);
+        efiredPulseShotR.GetComponent<Rigidbody2D>().velocity = new Vector3(1f, -1f, 0f);
     }
 }

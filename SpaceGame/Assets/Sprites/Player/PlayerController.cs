@@ -17,7 +17,8 @@ public class PlayerController : MonoBehaviour
     public GameObject EnergyBeamShot;
     public GameObject MissilePodShot;
     public GameObject explosionemitter;
-    
+    public GameObject playerShield;
+    public Transform playerShieldLocation;
     public int pulseCount = 0;
     public int maxPulse = 1;
     public int plasmaCount = 0;
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         UIPlayerHPText.text = ("HP : " + playerHP);
-        if (playerHP > 100)
+        if (playerHP > 200)
         {
             playerHP = 100;
         }
@@ -56,14 +57,21 @@ public class PlayerController : MonoBehaviour
         {
             PlayerDeath();
         }
+
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * Time.deltaTime * 4);
+            if (playerPosition.transform.position.x > -10)
+            {
+                transform.Translate(Vector3.left * Time.deltaTime * 4);
+            }
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * Time.deltaTime * 4);
+            if (playerPosition.transform.position.x < 10)
+            {
+                transform.Translate(Vector3.right * Time.deltaTime * 4);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -132,6 +140,11 @@ public class PlayerController : MonoBehaviour
             weaponCooldown = Time.time + 2f;
             energyCount = 0;
         }
+        if (missileCount == maxMissile)
+        {
+            weaponCooldown = Time.time + 2f;
+            missileCount = 0;
+        }
     }
 
     void FirePlayerWeapon()
@@ -194,8 +207,10 @@ public class PlayerController : MonoBehaviour
     {
         GameObject launchedMissile = Instantiate(MissilePodShot, playerPosition.position, playerPosition.rotation);
         launchedMissile.name = "LaunchedMissile";
-        launchedMissile.GetComponent<Rigidbody2D>().AddForce(100 * Vector2.up);
+        launchedMissile.GetComponent<Rigidbody2D>().velocity = Vector2.up * 5f;;
         AudioSource.PlayClipAtPoint(playerFireD, transform.position);
+        missileCount++;
+        weaponCooldown = Time.time + 2f;
         canFire = false;
     }
 
@@ -213,7 +228,16 @@ public class PlayerController : MonoBehaviour
             Destroy(EnemyProjectileCollide.gameObject);
             print("removed enemy plasma");
         }
-
+        
+        if (EnemyProjectileCollide.gameObject.CompareTag("EnemyMissile"))
+        {
+            playerHP -= 15;
+            Destroy(EnemyProjectileCollide.gameObject);
+            print("removed enemy plasma");
+        }
+        
+        // getting player powerups
+        
         if (EnemyProjectileCollide.gameObject.CompareTag("PowerUpLaser"))
         {
             AudioSource.PlayClipAtPoint(PowerUp, transform.position); 
@@ -242,6 +266,13 @@ public class PlayerController : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(PowerUp, transform.position); 
             playerHP += 25;
+            Destroy(EnemyProjectileCollide.gameObject);
+        }
+        if (EnemyProjectileCollide.gameObject.CompareTag("PowerUpShield"))
+        {
+            AudioSource.PlayClipAtPoint(PowerUp, transform.position); 
+            GameObject playerShieldBonus = Instantiate(playerShield, playerShieldLocation.transform.position, playerShieldLocation.transform.rotation);
+            playerShieldBonus.name = "player shield";
             Destroy(EnemyProjectileCollide.gameObject);
         }
     }

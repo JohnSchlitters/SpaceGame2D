@@ -20,6 +20,9 @@ TagManager:
   - PowerUpPlasma
   - PowerUpHeal
   - PowerUpMissile
+  - EnemyBeam
+  - PlayerShield
+  - PowerUpShield
   layers:
   - Default
   - TransparentFX
@@ -33,8 +36,8 @@ TagManager:
   - PlayerWeapon
   - Enemy
   - EnemyWeapon
-  - 
-  - 
+  - PlayerShield
+  - PowerUp
   - 
   - 
   - 

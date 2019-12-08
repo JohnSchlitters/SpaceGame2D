@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 4601509030490623406}
   - component: {fileID: 4601509030490623407}
   - component: {fileID: 2532070869738652940}
+  - component: {fileID: 3910816445956254949}
   m_Layer: 11
   m_Name: EnemyMissile
   m_TagString: PlayerMissile
@@ -254,6 +255,8 @@ MonoBehaviour:
   PlayerTarget: {fileID: 1519245767237696249, guid: 9189c53cea8e7c84bbd182e054cef96a,
     type: 3}
   rocketSpeed: 2
+  mexplosionemitter: {fileID: 6015871558755697162, guid: a0fa5d9e1088d9e45b4830d21a095009,
+    type: 3}
   missileTurn: 50
 --- !u!114 &2532070869738652940
 MonoBehaviour:
@@ -268,3 +271,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 10
+--- !u!61 &3910816445956254949
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4601509030490623392}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.08, y: 0.08}
+    newSize: {x: 0.08, y: 0.08}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.08, y: 0.08}
+  m_EdgeRadius: 0

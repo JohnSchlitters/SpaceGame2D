@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 7976162957511591092}
   - component: {fileID: 7585884895462195641}
   - component: {fileID: 6901687465749900294}
+  - component: {fileID: 335913821404900431}
   m_Layer: 10
   m_Name: EnemyLightGunship
-  m_TagString: EnemyLight
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,6 +156,8 @@ MonoBehaviour:
   enemyHPL: 0
   explosionemitter: {fileID: 8710622138656305012, guid: ab5abe114751a464abf3c3cd392e9006,
     type: 3}
+  mexplosionemitter: {fileID: 6015871558755697162, guid: a0fa5d9e1088d9e45b4830d21a095009,
+    type: 3}
   powerupHeal: {fileID: 4642874268304769858, guid: 5b36b4e15a3582f4e8b51400d09c0eb7,
     type: 3}
   powerupPulse: {fileID: 2435416613088461571, guid: 1d6fba4a8aea20047a255258b81272e0,
@@ -193,3 +196,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &335913821404900431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4257864061143351717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea68464c5d121ed46abea878f46b8a29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

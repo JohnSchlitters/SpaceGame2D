@@ -7,35 +7,24 @@ using UnityEngine;
 public class MissileScript : MonoBehaviour
 {
     public GameObject closestEnemyTarget;
-    public float rocketSpeed = 25f;
-
-    public float missileTurn = 100f;
+    public float rocketSpeed = 1f;
+    public float missileTurn = 15f;
 
     private Rigidbody2D rocketBody;
     void Start()
     {
-        GameObject FindClosestByTag(string Enemy)
+        GameObject[] allTargets = GameObject.FindGameObjectsWithTag("Enemy");
+        closestEnemyTarget = null;
+        float minimumDistance = Mathf.Infinity;
+        for (int e = 0; e < allTargets.Length; e++)
         {
-            GameObject[] target;
-            target = GameObject.FindGameObjectsWithTag(Enemy);
-            GameObject closestEnemyTarget = null;
-            float targetDistance = Mathf.Infinity;
-            Vector3 position = transform.position;
-            foreach (GameObject targ in target)
+            float thatDist = Vector3.Distance(transform.position, allTargets[e].transform.position);
+            if (thatDist < minimumDistance)
             {
-                Vector3 diff = targ.transform.position - position;
-                float currentDistance = diff.sqrMagnitude;
-                if (currentDistance < targetDistance)
-                {
-                    closestEnemyTarget = targ;
-                    targetDistance = currentDistance;
-                }
+                minimumDistance = thatDist;
+                closestEnemyTarget = allTargets[e];
             }
-
-            return closestEnemyTarget;
         }
-
-        closestEnemyTarget = closestEnemyTarget;
         rocketBody = GetComponent<Rigidbody2D>();
         rocketBody.gravityScale = 0;
     }
@@ -47,11 +36,6 @@ public class MissileScript : MonoBehaviour
         missileDirection.Normalize();
         float rotateIndex = Vector3.Cross(missileDirection, transform.up * 1).z;
         rocketBody.angularVelocity = -missileTurn * rotateIndex;
-        rocketBody.velocity = (transform.up * 1) * rocketSpeed;
-    }
-
-    private void OnTriggerEnter2D(Collider2D detectEnemy)
-    {
-        closestEnemyTarget = detectEnemy.collider2D;
+        rocketBody.velocity = (transform.up) * rocketSpeed;
     }
 }

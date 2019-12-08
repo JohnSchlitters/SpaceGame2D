@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3874619135874989372}
   - component: {fileID: 8638479316582260236}
   - component: {fileID: 8998523962806947837}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Beam
   m_TagString: PowerUpLaser
   m_Icon: {fileID: 0}

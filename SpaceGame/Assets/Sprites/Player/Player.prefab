@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1376012313271147733}
   - component: {fileID: 8625041158438577849}
   - component: {fileID: 1179005881}
+  - component: {fileID: 1179005882}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -31,8 +32,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
-  - {fileID: 286418731665408378}
-  - {fileID: 2668634770784317767}
+  - {fileID: 3219424536844365521}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponnumber: 1
   UIWeaponText: {fileID: 0}
+  UIPlayerHPText: {fileID: 0}
   PulseCannonShot: {fileID: 7813455725918215684, guid: 31bd6f8e0f124264da3d2537a8d4e8da,
     type: 3}
   PlasmaLauncherShot: {fileID: 238058655862787742, guid: 548a23f089aac414ea6afd009cab0308,
@@ -132,6 +133,11 @@ MonoBehaviour:
     type: 3}
   MissilePodShot: {fileID: 3456348929690843933, guid: 60f30f275bdb3e348b61e71cd78dc7e8,
     type: 3}
+  explosionemitter: {fileID: 8710622138656305012, guid: ab5abe114751a464abf3c3cd392e9006,
+    type: 3}
+  playerShield: {fileID: 4753672824970391901, guid: 8eab41eeed9832142bdf417184593363,
+    type: 3}
+  playerShieldLocation: {fileID: 3219424536844365521}
   pulseCount: 0
   maxPulse: 2
   plasmaCount: 0
@@ -146,6 +152,9 @@ MonoBehaviour:
   playerFireB: {fileID: 8300000, guid: 457862fb0124ada4c9c5a48fda558dea, type: 3}
   playerFireC: {fileID: 8300000, guid: 354740fcdfd7d064e96852b10ea5d304, type: 3}
   playerFireD: {fileID: 8300000, guid: f72c88872764528498cf85a33ca039ac, type: 3}
+  PowerUp: {fileID: 8300000, guid: 3f23bcebd12adbe449db45833e12c764, type: 3}
+  BlowUp: {fileID: 8300000, guid: ba736116f67d4704191c603a86ed7f9d, type: 3}
+  playerHP: 0
 --- !u!114 &1179005881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,10 +169,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIPlayerScore: {fileID: 0}
   UIPlayerMultiplier: {fileID: 0}
-  playerScore: 0
-  playerMultiplier: 1
-  playerKillCount: 0
---- !u!1 &7912225511342938819
+--- !u!50 &1179005882
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519245767237696249}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 6
+--- !u!1 &4095778548822856399
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,55 +198,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 286418731665408378}
+  - component: {fileID: 3219424536844365521}
   m_Layer: 0
-  m_Name: ObjectR
+  m_Name: ShieldPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &286418731665408378
+--- !u!4 &3219424536844365521
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7912225511342938819}
-  m_LocalRotation: {x: 0, y: 0, z: -0.258819, w: 0.9659259}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 4095778548822856399}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.149, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 9096430112188222552}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
---- !u!1 &8783249925788650973
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2668634770784317767}
-  m_Layer: 0
-  m_Name: ObjectL
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2668634770784317767
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8783249925788650973}
-  m_LocalRotation: {x: 0, y: 0, z: 0.2588191, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 9096430112188222552}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
