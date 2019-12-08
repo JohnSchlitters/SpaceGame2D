@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4601509029086878352}
   - component: {fileID: 4601509029086878367}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,9 +149,9 @@ GameObject:
   - component: {fileID: 4601509030490623407}
   - component: {fileID: 2532070869738652940}
   - component: {fileID: 3910816445956254949}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: EnemyMissile
-  m_TagString: PlayerMissile
+  m_TagString: EnemyMissile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

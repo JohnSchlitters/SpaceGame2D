@@ -39,7 +39,7 @@ private void OnCollisionEnter2D(Collision2D missileDeath)
     {
         GameObject missileexplosionemitter = Instantiate(mexplosionemitter, gameObject.transform.position, gameObject.transform.rotation);
         missileexplosionemitter.name = "enemyexplosion";
-        Destroy(missileexplosionemitter, 1f);
+        Destroy(missileexplosionemitter, 2f);
         Destroy(missileDeath.gameObject);
         Destroy(gameObject);
         print("missile destroyed");
@@ -48,7 +48,7 @@ private void OnCollisionEnter2D(Collision2D missileDeath)
     {
         GameObject missileexplosionemitter = Instantiate(mexplosionemitter, gameObject.transform.position, gameObject.transform.rotation);
         missileexplosionemitter.name = "enemyexplosion";
-        Destroy(missileexplosionemitter, 1f);
+        Destroy(missileexplosionemitter, 2f);
         Destroy(missileDeath.gameObject);
         Destroy(gameObject);
         print("missile destroyed");
@@ -57,7 +57,7 @@ private void OnCollisionEnter2D(Collision2D missileDeath)
     {
         GameObject missileexplosionemitter = Instantiate(mexplosionemitter, gameObject.transform.position, gameObject.transform.rotation);
         missileexplosionemitter.name = "enemyexplosion";
-        Destroy(missileexplosionemitter, 1f);
+        Destroy(missileexplosionemitter, 2f);
         Destroy(gameObject);
         print("missile destroyed");
     }
