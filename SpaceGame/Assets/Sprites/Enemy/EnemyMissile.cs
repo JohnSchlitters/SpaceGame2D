@@ -26,12 +26,6 @@ void Update()
     float rotateIndex = Vector3.Cross(missileDirection, transform.up * -1).z;
     rocketBody.angularVelocity = -missileTurn * rotateIndex;
     rocketBody.velocity = (transform.up * -1) * rocketSpeed;
-    //transform.position = Vector3.MoveTowards(transform.position, PlayerTarget.transform.position, rocketSpeed * Time.deltaTime * 0.1f);
-    //transform.LookAt(PlayerTarget.transform.position);
-    //rocketBody.velocity = transform.up * rocketSpeed * Time.deltaTime;
-    //Vector3 targetVector = PlayerTarget.transform.position - transform.position;
-    //float rotateIndex = Vector3.Cross(targetVector, transform.up).z;
-    //rocketBody.angularVelocity = -1 * rotateIndex * missileTurn * Time.deltaTime;
 }
 private void OnCollisionEnter2D(Collision2D missileDeath)
 {

@@ -27,17 +27,6 @@ public class SpawnEnemyGroup : MonoBehaviour
         InvokeRepeating("SpawnEnemySuperHeavy", 165f, 20.0f);
     }
 
-    private void Awake()
-    {
-        Application.targetFrameRate = 60;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void SpawnEnemyLightShip1() //wave 1
     {
         print("select 1, L gunship");

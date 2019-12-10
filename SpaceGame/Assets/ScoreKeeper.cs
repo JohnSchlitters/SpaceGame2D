@@ -23,7 +23,7 @@ public class ScoreKeeper : MonoBehaviour
     void Update()
     {
         UIPlayerScore.text = "Score = " + playerScore;
-        UIPlayerMultiplier.text = "Multiplier = " + playerMultiplier + "x";
+        UIPlayerMultiplier.text = "Multiplier = " + playerMultiplier.ToString("f1") + "x";
 
         if (playerKillCount >= 1)
         {
@@ -34,6 +34,6 @@ public class ScoreKeeper : MonoBehaviour
     private void MultiplierBoost()
     {
         playerKillCount = 0;
-        playerMultiplier += 0.1f;
+        playerMultiplier += 0.100000000000000000000000000f;
     }
 }

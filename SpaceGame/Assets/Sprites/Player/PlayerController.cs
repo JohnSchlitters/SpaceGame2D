@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         UIPlayerHPText.text = ("HP : " + playerHP);
         if (playerHP > 200)
         {
-            playerHP = 100;
+            playerHP = 200;
         }
         if (playerHP <= 0)
         {

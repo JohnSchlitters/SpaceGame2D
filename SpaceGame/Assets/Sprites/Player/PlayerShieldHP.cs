@@ -23,9 +23,9 @@ public class PlayerShieldHP : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //if (shieldHP > 100)
+        if (shieldHP > 100)
         {
-            //shieldHP = 100;
+            shieldHP = 100;
         }
     }
 
