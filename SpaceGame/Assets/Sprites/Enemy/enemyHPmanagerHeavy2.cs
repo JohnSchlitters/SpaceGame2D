@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class enemyHPmanagerHeavy2 : MonoBehaviour
 {
@@ -15,7 +16,10 @@ public class enemyHPmanagerHeavy2 : MonoBehaviour
     public GameObject powerupPlasma;
     public GameObject powerupEnergy;
     public GameObject powerupMissile;
+    public GameObject powerupShield;
+    public GameObject powerupNuke;
     public AudioClip BlowUp;
+    public AudioClip EnemyHit;
     //public ScoreKeeper getPlayerScoreStats;
 
     // Start is called before the first frame update
@@ -37,6 +41,7 @@ public class enemyHPmanagerHeavy2 : MonoBehaviour
     {
         if (enemyCollide2D.gameObject.CompareTag("PlayerPulse"))
         {
+            AudioSource.PlayClipAtPoint(EnemyHit, transform.position); 
             enemyHPH -= 50;
             print("enemy took 50 damage");
             Destroy(enemyCollide2D.gameObject);
@@ -45,6 +50,7 @@ public class enemyHPmanagerHeavy2 : MonoBehaviour
 
         if (enemyCollide2D.gameObject.CompareTag("PlayerPlasma"))
         {
+            AudioSource.PlayClipAtPoint(EnemyHit, transform.position); 
             enemyHPH -= 60;
             print("enemy took 60 damage");
             Destroy(enemyCollide2D.gameObject);
@@ -53,11 +59,13 @@ public class enemyHPmanagerHeavy2 : MonoBehaviour
 
         if (enemyCollide2D.gameObject.CompareTag("PlayerBeam"))
         {
+            AudioSource.PlayClipAtPoint(EnemyHit, transform.position); 
             enemyHPH -= 500;
             print("enemy took 500 damage");
         }
         if (enemyCollide2D.gameObject.CompareTag("PlayerMissile"))
         {
+            AudioSource.PlayClipAtPoint(EnemyHit, transform.position); 
             enemyHPH -= 100;
             print("enemy took  100 damage");
             Destroy(enemyCollide2D.gameObject);
@@ -69,8 +77,9 @@ public class enemyHPmanagerHeavy2 : MonoBehaviour
 
     private void DestroyShip()
     {
-        int dropchance = Random.Range(0,10);
-        if (dropchance >= 4)
+        int dropchance = Random.Range(0, 10);
+        if (dropchance > 7 || dropchance < 8)
+
         {
                 int poweruptype = Random.Range(1, 4);
                 switch (poweruptype)
@@ -92,6 +101,22 @@ public class enemyHPmanagerHeavy2 : MonoBehaviour
                         MissileDrop.name = "playerEnergy";
                         break;
                 }
+
+                int bonustype = Random.Range(1, 3);
+                switch (bonustype)
+                {
+                    case 1:
+                        GameObject HealDrop = Instantiate(powerupHeal, gameObject.transform.position, gameObject.transform.rotation);
+                        HealDrop.name = "playerHeal";
+                        break;
+                    case 2:
+                        GameObject Shield = Instantiate(powerupShield, gameObject.transform.position, gameObject.transform.rotation);
+                        Shield.name = "playerShield";
+                        break;
+                    case 3:
+                        break;
+                }
+                
         }
         AudioSource.PlayClipAtPoint(BlowUp, transform.position); 
         ScoreKeeper.playerScore += (300 * ScoreKeeper.playerMultiplier);

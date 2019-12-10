@@ -8,8 +8,8 @@ public class ScoreKeeper : MonoBehaviour
     // Start is called before the first frame update
     public Text UIPlayerScore;
     public Text UIPlayerMultiplier;
-    public static int playerScore;
-    public static int playerMultiplier;
+    public static float playerScore;
+    public static float playerMultiplier;
     public static int playerKillCount;
     void Start()
     {
@@ -25,7 +25,7 @@ public class ScoreKeeper : MonoBehaviour
         UIPlayerScore.text = "Score = " + playerScore;
         UIPlayerMultiplier.text = "Multiplier = " + playerMultiplier + "x";
 
-        if (playerKillCount >= 10)
+        if (playerKillCount >= 1)
         {
             MultiplierBoost();
         }
@@ -34,6 +34,6 @@ public class ScoreKeeper : MonoBehaviour
     private void MultiplierBoost()
     {
         playerKillCount = 0;
-        playerMultiplier++;
+        playerMultiplier += 0.1f;
     }
 }

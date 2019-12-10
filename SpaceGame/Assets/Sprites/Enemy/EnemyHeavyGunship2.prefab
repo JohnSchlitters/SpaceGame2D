@@ -142,7 +142,11 @@ MonoBehaviour:
     type: 3}
   powerupMissile: {fileID: 8691353472021771387, guid: 982d7af22e5da4c439a339c5e1af48e1,
     type: 3}
+  powerupShield: {fileID: 2644920198587672389, guid: 8ac609eae374bc64face55c35ebc3446,
+    type: 3}
+  powerupNuke: {fileID: 0}
   BlowUp: {fileID: 8300000, guid: ba736116f67d4704191c603a86ed7f9d, type: 3}
+  EnemyHit: {fileID: 8300000, guid: aa088b1d4c8da754eacee57ae53e61b1, type: 3}
 --- !u!50 &8583576534687079096
 Rigidbody2D:
   serializedVersion: 4

@@ -97,14 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d9b8b3a5b6cf64eb5a64f9afac3fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPointL: {fileID: 1710831208853422761, guid: 97c897d26edf87143898e55a63865d81,
-    type: 3}
-  enemyPointC: {fileID: 3731733620500202083, guid: 393a8c31db5232a45a21c86232c660bf,
-    type: 3}
-  enemyPointR: {fileID: 7071066041605542566, guid: bdf919d070a766a4ea9dcb91f30b6d88,
-    type: 3}
-  enemyspeed: 10
-  enemyhp: 0
 --- !u!114 &5474232533989641770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +126,7 @@ MonoBehaviour:
   powerupMissile: {fileID: 8691353472021771387, guid: 982d7af22e5da4c439a339c5e1af48e1,
     type: 3}
   BlowUp: {fileID: 8300000, guid: ba736116f67d4704191c603a86ed7f9d, type: 3}
+  EnemyHit: {fileID: 8300000, guid: aa088b1d4c8da754eacee57ae53e61b1, type: 3}
 --- !u!50 &5447352921689519950
 Rigidbody2D:
   serializedVersion: 4

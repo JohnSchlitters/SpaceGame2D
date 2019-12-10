@@ -239,7 +239,14 @@ public class PlayerController : MonoBehaviour
         {
             playerHP -= 15;
             Destroy(EnemyProjectileCollide.gameObject);
-            print("removed enemy plasma");
+            print("removed enemy missile");
+        }
+        
+        if (EnemyProjectileCollide.gameObject.CompareTag("EnemyBeam"))
+        {
+            playerHP -= 20;
+            Destroy(EnemyProjectileCollide.gameObject);
+            print("removed enemy beam");
         }
         
         // getting player powerups

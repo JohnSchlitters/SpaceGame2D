@@ -1321,6 +1321,31 @@ PrefabInstance:
       propertyPath: UIPlayerMultiplier
       value: 
       objectReference: {fileID: 1221222271}
+    - target: {fileID: 5116494055240641047, guid: 9189c53cea8e7c84bbd182e054cef96a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116494055240641047, guid: 9189c53cea8e7c84bbd182e054cef96a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116494055240641047, guid: 9189c53cea8e7c84bbd182e054cef96a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116494055240641047, guid: 9189c53cea8e7c84bbd182e054cef96a,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116494055240641047, guid: 9189c53cea8e7c84bbd182e054cef96a,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9189c53cea8e7c84bbd182e054cef96a, type: 3}
 --- !u!1001 &7071066040578836895

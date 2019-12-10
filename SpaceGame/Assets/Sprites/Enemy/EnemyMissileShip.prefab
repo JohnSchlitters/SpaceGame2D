@@ -148,6 +148,7 @@ MonoBehaviour:
   powerupMissile: {fileID: 8691353472021771387, guid: 982d7af22e5da4c439a339c5e1af48e1,
     type: 3}
   BlowUp: {fileID: 8300000, guid: ba736116f67d4704191c603a86ed7f9d, type: 3}
+  EnemyHit: {fileID: 8300000, guid: aa088b1d4c8da754eacee57ae53e61b1, type: 3}
 --- !u!61 &4626978816873098967
 BoxCollider2D:
   m_ObjectHideFlags: 0

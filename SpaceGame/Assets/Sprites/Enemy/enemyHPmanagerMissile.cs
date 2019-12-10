@@ -16,6 +16,7 @@ public class enemyHPmanagerMissile : MonoBehaviour
     public GameObject powerupEnergy;
     public GameObject powerupMissile;
     public AudioClip BlowUp;
+    public AudioClip EnemyHit;
     //public ScoreKeeper getPlayerScoreStats;
 
     // Start is called before the first frame update
@@ -37,6 +38,7 @@ public class enemyHPmanagerMissile : MonoBehaviour
     {
         if (enemyCollide2D.gameObject.CompareTag("PlayerPulse"))
         {
+            AudioSource.PlayClipAtPoint(EnemyHit, transform.position); 
             enemyHPM -= 50;
             print("enemy took 50 damage");
             Destroy(enemyCollide2D.gameObject);
@@ -45,6 +47,7 @@ public class enemyHPmanagerMissile : MonoBehaviour
 
         if (enemyCollide2D.gameObject.CompareTag("PlayerPlasma"))
         {
+            AudioSource.PlayClipAtPoint(EnemyHit, transform.position); 
             enemyHPM -= 60;
             print("enemy took 60 damage");
             Destroy(enemyCollide2D.gameObject);
@@ -53,11 +56,13 @@ public class enemyHPmanagerMissile : MonoBehaviour
 
         if (enemyCollide2D.gameObject.CompareTag("PlayerBeam"))
         {
+            AudioSource.PlayClipAtPoint(EnemyHit, transform.position); 
             enemyHPM -= 500;
             print("enemy took 500 damage");
         }
         if (enemyCollide2D.gameObject.CompareTag("PlayerMissile"))
         {
+            AudioSource.PlayClipAtPoint(EnemyHit, transform.position); 
             enemyHPM -= 100;
             print("enemy took  100 damage");
             Destroy(enemyCollide2D.gameObject);

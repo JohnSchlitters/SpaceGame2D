@@ -51,5 +51,11 @@ public class PlayerShieldHP : MonoBehaviour
             Destroy(EnemyProjectileCollide.gameObject);
             print("removed enemy plasma");
         }
+        if (EnemyProjectileCollide.gameObject.CompareTag("EnemyBeam"))
+        {
+            shieldHP -= 25;
+            Destroy(EnemyProjectileCollide.gameObject);
+            print("removed enemy plasma");
+        }
     }
 }

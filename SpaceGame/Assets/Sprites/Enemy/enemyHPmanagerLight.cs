@@ -17,6 +17,7 @@ public class enemyHPmanagerLight : MonoBehaviour
     public GameObject powerupEnergy;
     public GameObject powerupShield;
     public AudioClip BlowUp;
+    public AudioClip EnemyHit;
     
     public float waitTime = 10f;
     public ScoreKeeper getPlayerScoreStats;
@@ -38,6 +39,7 @@ public class enemyHPmanagerLight : MonoBehaviour
     {
         if (enemyCollide2D.gameObject.CompareTag("PlayerPulse"))
         {
+            AudioSource.PlayClipAtPoint(EnemyHit, transform.position); 
             enemyHPL -= 50;
             print("enemy took 50 damage");
             Destroy(enemyCollide2D.gameObject);
@@ -45,6 +47,7 @@ public class enemyHPmanagerLight : MonoBehaviour
         }
         if (enemyCollide2D.gameObject.CompareTag("PlayerPlasma"))
         {
+            AudioSource.PlayClipAtPoint(EnemyHit, transform.position); 
             enemyHPL -= 60;
             print("enemy took 60 damage");
             Destroy(enemyCollide2D.gameObject);
@@ -52,11 +55,13 @@ public class enemyHPmanagerLight : MonoBehaviour
         }
         if (enemyCollide2D.gameObject.CompareTag("PlayerBeam"))
         {
+            AudioSource.PlayClipAtPoint(EnemyHit, transform.position); 
             enemyHPL -= 500;
             print("enemy took  500 damage");
         }
         if (enemyCollide2D.gameObject.CompareTag("PlayerMissile"))
         {
+            AudioSource.PlayClipAtPoint(EnemyHit, transform.position); 
             enemyHPL -= 100;
             print("enemy took  100 damage");
             Destroy(enemyCollide2D.gameObject);
@@ -81,7 +86,7 @@ public class enemyHPmanagerLight : MonoBehaviour
                     HealDrop.name = "playerHeal";
                 }
 
-                if (typeChance < 6)
+                if (typeChance > 6)
                 {
                     GameObject Shield = Instantiate(powerupShield, gameObject.transform.position, gameObject.transform.rotation);
                     Shield.name = "playerShield";
