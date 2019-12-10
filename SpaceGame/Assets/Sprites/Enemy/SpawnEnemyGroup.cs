@@ -18,13 +18,13 @@ public class SpawnEnemyGroup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnEnemyLightShip1", 0f, 10.0f);
-        InvokeRepeating("SpawnEnemyLightShip2", 20f, 10.0f);
-        InvokeRepeating("SpawnEnemyHeavyShip1", 40f, 15.0f);
-        InvokeRepeating("SpawnEnemyLightShip3", 80f, 12.5f);
-        InvokeRepeating("SpawnEnemyHeavyShip2", 100f, 10.0f);
-        InvokeRepeating("SpawnEnemyMissileShip1", 120f, 15.0f);
-        InvokeRepeating("SpawnEnemySuperHeavy", 160f, 20.0f);
+        InvokeRepeating("SpawnEnemyLightShip1", 5f, 10.0f);
+        InvokeRepeating("SpawnEnemyLightShip2", 25f, 10.0f);
+        InvokeRepeating("SpawnEnemyHeavyShip1", 45f, 15.0f);
+        InvokeRepeating("SpawnEnemyLightShip3", 85f, 12.5f);
+        InvokeRepeating("SpawnEnemyHeavyShip2", 105f, 10.0f);
+        InvokeRepeating("SpawnEnemyMissileShip1", 125f, 15.0f);
+        InvokeRepeating("SpawnEnemySuperHeavy", 165f, 20.0f);
     }
 
     private void Awake()
@@ -109,13 +109,8 @@ public class SpawnEnemyGroup : MonoBehaviour
             enemyLightGunship.name = "enemyLightGunship";
             GameObject enemyLightGunship2 = Instantiate(enemyGunShipA, enemySpawn.position, enemySpawn.rotation);
             enemyLightGunship2.name = "enemyLightGunship2";
-            GameObject enemyLightGunship3 = Instantiate(enemyGunShipA, enemySpawn.position, enemySpawn.rotation);
-            enemyLightGunship3.name = "enemyLightGunship3";
-        }
-        else if (randomvalue == 2)
-        {
-            GameObject enemyBeamGunship = Instantiate(enemyBeamShipA, enemySpawn.position, enemySpawn.rotation);
-            enemyBeamShipA.name = "enemyBeamGunship";
+            GameObject enemyLightGunship3 = Instantiate(enemyBeamShipA, enemySpawn.position, enemySpawn.rotation);
+            enemyLightGunship3.name = "enemyBeamShip1";
         }
     }
     private void SpawnEnemyHeavyShip2() //wave 5
@@ -136,6 +131,6 @@ public class SpawnEnemyGroup : MonoBehaviour
     {
         print("select 1, L gunship");
         GameObject enemySuperGunshipA = Instantiate(enemySuperGunShip, enemySpawn.position, enemySpawn.rotation);
-        enemySuperGunshipA.name = "enemyLightGunship";
+        enemySuperGunshipA.name = "enemySuperGunShip";
     }
 }

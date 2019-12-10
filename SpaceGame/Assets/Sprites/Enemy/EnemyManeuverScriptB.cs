@@ -7,7 +7,6 @@ public class EnemyManeuverScriptB : MonoBehaviour
 {
     // Start is called before the first frame update
     private float enemytimer = 10;
-    private int pointselect = 0;
     private Vector2 position;
     private float moveDuration = 4.0f;
     private float waitBeforeMove;

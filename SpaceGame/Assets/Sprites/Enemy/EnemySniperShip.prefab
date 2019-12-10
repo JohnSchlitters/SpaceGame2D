@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 4080214878108631907}
   - component: {fileID: 1696076744}
   - component: {fileID: 1696076743}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemySniperShip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,6 +121,7 @@ MonoBehaviour:
     type: 3}
   powerupEnergy: {fileID: 1284025064134033766, guid: f53ffc5d1d75d16408ac4e58bbc8020b,
     type: 3}
+  powerupShield: {fileID: 0}
   BlowUp: {fileID: 8300000, guid: ba736116f67d4704191c603a86ed7f9d, type: 3}
   waitTime: 10
   getPlayerScoreStats: {fileID: 0}

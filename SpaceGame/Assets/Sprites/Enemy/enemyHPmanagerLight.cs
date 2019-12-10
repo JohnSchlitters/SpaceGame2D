@@ -80,8 +80,13 @@ public class enemyHPmanagerLight : MonoBehaviour
                     GameObject HealDrop = Instantiate(powerupHeal, gameObject.transform.position, gameObject.transform.rotation);
                     HealDrop.name = "playerHeal";
                 }
-                GameObject Shield = Instantiate(powerupShield, gameObject.transform.position, gameObject.transform.rotation);
-                Shield.name = "playerShiel";
+
+                if (typeChance < 6)
+                {
+                    GameObject Shield = Instantiate(powerupShield, gameObject.transform.position, gameObject.transform.rotation);
+                    Shield.name = "playerShield";
+                }
+
             }
 
             if (itemchance > 6)

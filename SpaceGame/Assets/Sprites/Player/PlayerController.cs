@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public int weaponnumber = 1;
     public Text UIWeaponText;
     public Text UIPlayerHPText;
+    public Text UIPlayerRestart;
     
     public GameObject PulseCannonShot;
     public GameObject PlasmaLauncherShot;
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public int maxEnergy = 1;
     public int missileCount = 0;
     public int maxMissile = 1;
+    private int counttimer = 1;
     public float weaponCooldown = 0;
     public Transform playerPosition;
     public AudioClip playerFireA;
@@ -37,11 +40,13 @@ public class PlayerController : MonoBehaviour
     public AudioClip BlowUp;
     private bool canFire;
     public static bool hasShield = false;
-
+    public static bool isDead = false;
+    public GameObject TextGameOver;
     public int playerHP;
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(CountDown());
         Application.targetFrameRate = 144;
         playerHP = 100;
     }
@@ -58,7 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             PlayerDeath();
         }
-
+        
         if (Input.GetKey(KeyCode.A))
         {
             if (playerPosition.transform.position.x > -10)
@@ -289,8 +294,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public IEnumerator CountDown()
+    {
+        UIPlayerRestart.text = "5";
+        yield return new WaitForSeconds(1);
+        UIPlayerRestart.text = "4";
+        yield return new WaitForSeconds(1);
+        UIPlayerRestart.text = "3";
+        yield return new WaitForSeconds(1);
+        UIPlayerRestart.text = "2";
+        yield return new WaitForSeconds(1);
+        UIPlayerRestart.text = "1";
+        yield return new WaitForSeconds(1);
+        UIPlayerRestart.text = "Go!";
+        yield return new WaitForSeconds(3);
+        UIPlayerRestart.text = "";
+    }
     private void PlayerDeath()
     {
+        GameObject restartText = Instantiate(TextGameOver);
+        UIPlayerRestart.text = "GAME OVER \n Press 'R' to Restart";
+        isDead = true;
+        restartText.name = "gameOver";
         print("Game Over, Man!");
         GameObject deadexplosionemitter = Instantiate(explosionemitter, gameObject.transform.position, gameObject.transform.rotation);
         deadexplosionemitter.name = "enemyexplosion";
